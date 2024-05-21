@@ -9,8 +9,8 @@ from math import radians, cos, sin, asin, sqrt
 
 class DonneesGeo:
     def __init__(self, ville, pays, latitude, longitude):
-        self.ville = ville
-        self.pays = pays
+        self.ville = str(ville)
+        self.pays = str(pays)
         self.latitude = float(latitude)
         self.longitude = float(longitude)
 
@@ -28,9 +28,8 @@ def lireDonneesCsv(nomFichier):
     reader = csv.DictReader(fichiercsv, delimiter=',')
     for ligne in reader:
         liste.append(ligne)
-        # print(ligne)
-    # for cle, valeur in ligne.items():
-    #      print(cle, valeur)
+        print(ligne)
+
 
 
 lireDonneesCsv('pays.csv')
@@ -49,7 +48,7 @@ ecrireDonneesJson('donnes.json', liste)
 
 
 ##2.5#####################################################################################################################
-#######################################################################################
+
 def trouverDistanceMin (nomFichier):
     with open (nomFichier,'r') as f:
         data = json.load(f)
@@ -72,18 +71,7 @@ def trouverDistanceMin (nomFichier):
             writer.writerow([ville1, ville2,distance])
 
 
-def haversine(lat1, lon1, lat2, lon2):
-    R = 6371  # this is in miles.  For Earth radius in kilometers use 6372.8 km
 
-    dLat = radians(lat2 - lat1)
-    dLon = radians(lon2 - lon1)
-    lat1 = radians(lat1)
-    lat2 = radians(lat2)
-
-    a = sin(dLat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dLon / 2) ** 2
-    c = 2 * asin(sqrt(a))
-
-    return R * c
 
 
 
