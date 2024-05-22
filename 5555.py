@@ -13,7 +13,6 @@
 import csv
 import json
 import math
-import codecs
 from math import radians, cos, sin, asin, sqrt
 
 
@@ -39,7 +38,7 @@ liste = []
 #ouverture du fichier csv en mode read en prenant en compte les accents
 #chaque ligne du fichier est un dictionnaire qui sera ajouté à la liste et affiché
 def lireDonneesCsv(nomFichier):
-    fichiercsv = codecs.open(nomFichier, 'r', encoding='utf-8')
+    fichiercsv = open(nomFichier, 'r', encoding='utf-8')
     reader = csv.DictReader(fichiercsv, delimiter=',')
     for ligne in reader:
         liste.append(ligne)
