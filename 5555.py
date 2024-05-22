@@ -1,3 +1,15 @@
+#Gestion de données géographiques
+#Samy Debbah et Daniel Lopez
+#    e1960719 et eYYYYYY
+#         21-05-2024
+
+
+
+
+
+
+
+
 import csv
 import json
 import math
