@@ -52,7 +52,7 @@ lireDonneesCsv('pays.csv')
 
 ##2.4##################################################################################################################
 
-# fonction prend la liste de dictionnaire en paramètre et le fichier json dans lequel la liste de dictionnaire de type Geo sera écrite
+# fonction prend la liste de dictionnaire en paramètre et le fichier json dans lequel la liste de dictionnaire sera écrite
 def ecrireDonneesJson(nomFichier, listeObjDonnesGeo):
     data = {'Geo': listeObjDonnesGeo}
     with open(nomFichier, 'w', encoding='utf-8') as j:
