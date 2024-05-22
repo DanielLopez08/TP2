@@ -68,22 +68,19 @@ def trouverDistanceMin (nomFichier):
     with open (nomFichier,'r') as f:
         data = json.load(f)
 # trouver la distance
-        distance = []
-        for i in range(len(data)):
+        distance = []#liste vide
+        for i in range(len(data)): #premiere ville
             ville1=data[i]
-            for k in range(i+1, len(data)):
+            for k in range(i+1, len(data)):#deuxieme ville qui est differente de la premiere
                 ville2 = data[k]
                 
-                distance.append([ville1['ville 1'],ville2['ville 2'], distance])
-
+                distance.append([ville1['ville 1'],ville2['ville 2'], distance])#rajouter les infos a la liste vide
+              # Sauvegarder les résultats dans un fichier CSV
                 with open ('distance.csv', 'a', newline = '') as f:
                     writer = csv.writer(f)
-                    writer.writerow([ville1['ville1'],ville2['ville2'], distance])
+                    writer.writerow([ville1['ville 1'],ville2['ville2'], distance])
 
-        # Sauvegarder les résultats dans un fichier CSV
-        with open('distances.csv', 'a') as f:
-            writer = csv.writer(f)
-            writer.writerow([ville1, ville2,distance])
+    
             
 def haversine(lon1, lat1, lon2, lat2):
    
