@@ -73,20 +73,46 @@ def trouverDistanceMin (nomFichier):
             ville1=data[i]
             for k in range(i+1, len(data)):
                 ville2 = data[k]
-                distance = Calculdistance(ville1['latitude'], ville1['longitude'],ville2['latitude'], ville2['longitude'])
-                distance.append([ville1['ville'],ville2['ville'], distance])
+                
+                distance.append([ville1['ville 1'],ville2['ville 2'], distance])
 
                 with open ('distance.csv', 'a', newline = '') as f:
                     writer = csv.writer(f)
-                    writer.writerow([ville1['ville'],ville2['ville'], distance])
+                    writer.writerow([ville1['ville1'],ville2['ville2'], distance])
 
         # Sauvegarder les résultats dans un fichier CSV
         with open('distances.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow([ville1, ville2,distance])
+            
+def haversine(lon1, lat1, lon2, lat2):
+   
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    r = 6371 # Radius of earth in kilometers. 
+    return c * r            
 
 
-
+root = tk.Tk()
+root.title("Menu")
+root.geometry("400x600")
+menu = ["1","2","3","q"]
+menu_selectionne = tk.StringVar(value= "selectionnez un numero ou quitter")
+option1 = tk.Button(root, text="1.Lire les données du fichier csv, créer les objets et afficher les données.", command = clic, bg="#2E75FF", fg ="white")
+option1.pack()
+option2 = tk.Button(root, text="2.Sauvegarder les données dans un fichier .json.", command = clic, bg="#2E75FF", fg ="white")
+option2.pack()
+option3 = tk.Button(root, text="3.Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv", command = clic, bg="#2E75FF", fg ="white")
+option3.pack()
+quitter = tk.Button(root, text="Quitter", command = clic, bg="#2E75FF", fg ="white")
+quitter.pack()
+root.mainloop();
 
 
 
