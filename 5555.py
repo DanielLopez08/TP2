@@ -1,7 +1,7 @@
-#Gestion de données géographiques
-#Samy Debbah et Daniel Lopez
-#    e1960719 et e2033426
-#         21-05-2024
+# Gestion de données géographiques
+#   Samy Debbah et Daniel Lopez
+#      e1960719 et e2033426
+#           21-05-2024
 
 
 
