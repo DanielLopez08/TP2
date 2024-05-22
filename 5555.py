@@ -69,7 +69,7 @@ def trouverDistanceMin (nomFichier):
         data = json.load(f)
 # trouver la distance
         distance = []#liste vide
-        for i in range(data): #premiere ville
+        for i in range(data) #premiere ville
             ville1=data[i]
             for k in range(i+1,(data):#deuxieme ville qui est differente de la premiere
                 ville2 = data[k]
