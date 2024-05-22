@@ -19,6 +19,7 @@ from math import radians, cos, sin, asin, sqrt
 
 # 2.2#################################################################################################################
 
+#création de la classe DonnesGeo avec ses attributs initalisés dans le constructeur
 class DonneesGeo:
     def __init__(self, ville, pays, latitude, longitude):
         self.ville = str(ville)
@@ -26,6 +27,7 @@ class DonneesGeo:
         self.latitude = float(latitude)
         self.longitude = float(longitude)
 
+#retourne la valeur des attributs de la classe en str
     def str(self):
         return f"ville:{self.ville} - pays:{self.pays} - latitude: {self.latitude} - longitude : {self.longitude}"
 
@@ -34,7 +36,8 @@ class DonneesGeo:
 
 liste = []
 
-
+#ouverture du fichier csv en mode read en prenant en compte les accents
+#chaque ligne du fichier est un dictionnaire qui sera ajouté à la liste et affiché
 def lireDonneesCsv(nomFichier):
     fichiercsv = codecs.open(nomFichier, 'r', encoding='utf-8')
     reader = csv.DictReader(fichiercsv, delimiter=',')
@@ -49,7 +52,7 @@ lireDonneesCsv('pays.csv')
 
 ##2.4##################################################################################################################
 
-
+# fonction prend la liste de dictionnaire en paramètre et le fichier json dans lequel la liste de dictionnaire de type Geo sera écrite
 def ecrireDonneesJson(nomFichier, listeObjDonnesGeo):
     data = {'Geo': listeObjDonnesGeo}
     with open(nomFichier, 'w', encoding='utf-8') as j:
