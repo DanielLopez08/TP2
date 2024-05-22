@@ -28,7 +28,7 @@ class DonneesGeo:
         self.longitude = float(longitude)
 
 #retourne la valeur des attributs de la classe en str
-    def str(self):
+    def __str__(self):
         return f"ville:{self.ville} - pays:{self.pays} - latitude: {self.latitude} - longitude : {self.longitude}"
 
 
