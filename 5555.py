@@ -4,12 +4,6 @@
 #           21-05-2024
 
 
-
-
-
-
-
-
 import csv
 import json
 import math
@@ -18,7 +12,7 @@ from math import radians, cos, sin, asin, sqrt
 
 # 2.2#################################################################################################################
 
-#création de la classe DonnesGeo avec ses attributs initalisés dans le constructeur
+# création de la classe DonnesGeo avec ses attributs initalisés dans le constructeur
 class DonneesGeo:
     def __init__(self, ville, pays, latitude, longitude):
         self.ville = str(ville)
@@ -26,7 +20,7 @@ class DonneesGeo:
         self.latitude = float(latitude)
         self.longitude = float(longitude)
 
-#retourne la valeur des attributs de la classe en str
+    # retourne la valeur des attributs de la classe en str
     def __str__(self):
         return f"ville:{self.ville} - pays:{self.pays} - latitude: {self.latitude} - longitude : {self.longitude}"
 
@@ -35,8 +29,9 @@ class DonneesGeo:
 
 liste = []
 
-#ouverture du fichier csv en mode read en prenant en compte les accents
-#chaque ligne du fichier est un dictionnaire qui sera ajouté à la liste et affiché
+
+# ouverture du fichier csv en mode read en prenant en compte les accents
+# chaque ligne du fichier est un dictionnaire qui sera ajouté à la liste et affiché
 def lireDonneesCsv(nomFichier):
     fichiercsv = open(nomFichier, 'r', encoding='utf-8')
     reader = csv.DictReader(fichiercsv, delimiter=',')
@@ -46,7 +41,6 @@ def lireDonneesCsv(nomFichier):
 
 
 
-lireDonneesCsv('pays.csv')
 
 
 ##2.4##################################################################################################################
@@ -61,26 +55,26 @@ def ecrireDonneesJson(nomFichier, listeObjDonnesGeo):
 ecrireDonneesJson('donnes.json', liste)
 
 
-##2.5#####################################################################################################################
-
-def trouverDistanceMin (nomFichier):
-    with open (nomFichier,'r') as f:
+def trouverDistanceMin(nomFichier):
+    with open(nomFichier, 'r') as f:
         data = json.load(f)
-# trouver la distance
-        distance = []#liste vide
-        for i in range(data): #premiere ville
-            ville1=data[i]
-            for k in range(i+1,(data)):#deuxieme ville qui est differente de la premiere
+        # trouver la distance
+        distance = []  # liste vide
+        for i in range(data):  # premiere ville
+            ville1 = data[i]
+            for k in range(i + 1, (data)):  # deuxieme ville qui est differente de la premiere
                 ville2 = data[k]
-                
-                distance.append([ville1['ville 1'],ville2['ville 2'], distance])#rajouter les infos a la liste vide
-              # Sauvegarder les résultats dans un fichier CSV
-                with open ('distance.csv', 'a', newline = '') as f:
-                    writer = csv.writer(f)
-                    writer.writerow([ville1['ville 1'],ville2['ville2'], distance])
 
-##2.6#########################################################################################
-            
+            distance.append([ville1['ville 1'], ville2['ville 2'], distance])
+            # rajouter les infos a la liste vide
+            # Sauvegarder les résultats dans un fichier CSV
+            with open('distance.csv', 'a', newline='') as f:
+                writer = csv.writer(f)
+            writer.writerow([ville1['ville 1'], ville2['ville2'], distance])
+
+            ##2.6#########################################################################################
+
+
 while True:
     print('''
        1- Lire les données du fichier csv, créer les objets et afficher les données.
@@ -100,6 +94,4 @@ while True:
         break
     else:
         input('Choix invalide, appuyez sur une touche pour continuer...')
-
-
 
