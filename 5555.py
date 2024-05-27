@@ -70,7 +70,7 @@ def trouverDistanceMin (nomFichier):
         distance = []#liste vide
         for i in range(data): #premiere ville
             ville1=data[i]
-            for k in range(i+1,(data):#deuxieme ville qui est differente de la premiere
+            for k in range(i+1,(data)):#deuxieme ville qui est differente de la premiere
                 ville2 = data[k]
                 
                 distance.append([ville1['ville 1'],ville2['ville 2'], distance])#rajouter les infos a la liste vide
