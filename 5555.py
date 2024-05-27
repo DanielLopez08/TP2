@@ -88,7 +88,7 @@ def trouverDistanceMin (nomFichier):
         2- Sauvegarder les données dans un fichier .json.
         3- Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv.
         Entrez un numéro pour choisir une option ou appuyez sur 'q' pour quitter :''')
-        choix = input()
+        choix = int(input())
         if choix == '1':
             afficher_donnees_csv('pays.csv')
         elif choix == '2':
