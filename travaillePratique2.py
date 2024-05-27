@@ -52,8 +52,6 @@ def ecrireDonneesJson(nomFichier, listeObjDonnesGeo):
         json.dump(data, j, indent=4)
 
 
-ecrireDonneesJson('donnes.json', liste)
-
 
 def trouverDistanceMin(nomFichier):
     with open(nomFichier, 'r') as f:
