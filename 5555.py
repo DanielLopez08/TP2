@@ -81,29 +81,25 @@ def trouverDistanceMin (nomFichier):
 
     
             
-          
- while True:
-        print('''
-        1- Lire les données du fichier csv, créer les objets et afficher les données.
-        2- Sauvegarder les données dans un fichier .json.
-        3- Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv.
-        Entrez un numéro pour choisir une option ou appuyez sur 'q' pour quitter :''')
-        choix = int(input())
-        if choix == '1':
-            afficher_donnees_csv('pays.csv')
-        elif choix == '2':
-            with open('pays.csv') as csvfile:
-                reader = csv.DictReader(csvfile)
-                donnees = {row['ville']: row for row in reader}
-                sauvegarder_donnees_json(donnees, 'donnees.json')
-        elif choix == '3':
-            donnees = lire_donnees_json('donnees.json')
-            distances = calculer_distances_minimales(donnees)
-            sauvegarder_distances(distances, 'distances.csv')
-        elif choix == 'q':
-            break
-        else:
-         input('Choix invalide, appuyez sur une touche pour continuer...')
+while True:
+    print('''
+       1- Lire les données du fichier csv, créer les objets et afficher les données.
+       2- Sauvegarder les données dans un fichier .json.
+       3- Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv.
+       Entrez un numéro pour choisir une option ou appuyez sur 'q' pour quitter :''')
+    choix = input()
+    if choix == '1':
+        lireDonneesCsv('pays.csv')
+    elif choix == '2':
+        ecrireDonneesJson('donnees.json', liste)
+
+    elif choix == '3':
+        trouverDistanceMin('donnees.json')
+
+    elif choix == 'q':
+        break
+    else:
+        input('Choix invalide, appuyez sur une touche pour continuer...')
 
 
 
