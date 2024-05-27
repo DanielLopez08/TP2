@@ -79,7 +79,7 @@ def trouverDistanceMin (nomFichier):
                     writer = csv.writer(f)
                     writer.writerow([ville1['ville 1'],ville2['ville2'], distance])
 
-    
+##2.6#########################################################################################
             
 while True:
     print('''
