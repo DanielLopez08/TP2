@@ -82,22 +82,28 @@ def trouverDistanceMin (nomFichier):
     
             
           
-
-
-root = tk.Tk()
-root.title("Menu")
-root.geometry("400x600")
-menu = ["1","2","3","q"]
-menu_selectionne = tk.StringVar(value= "selectionnez un numero ou quitter")
-option1 = tk.Button(root, text="1.Lire les données du fichier csv, créer les objets et afficher les données.", command = clic, bg="#2E75FF", fg ="white")
-option1.pack()
-option2 = tk.Button(root, text="2.Sauvegarder les données dans un fichier .json.", command = clic, bg="#2E75FF", fg ="white")
-option2.pack()
-option3 = tk.Button(root, text="3.Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv", command = clic, bg="#2E75FF", fg ="white")
-option3.pack()
-quitter = tk.Button(root, text="Quitter", command = clic, bg="#2E75FF", fg ="white")
-quitter.pack()
-root.mainloop();
+ while True:
+        print('''
+        1- Lire les données du fichier csv, créer les objets et afficher les données.
+        2- Sauvegarder les données dans un fichier .json.
+        3- Lire les données du fichier .json, déterminer et afficher les données associées à la distance minimale entre deux villes et sauvegarder les calculs dans distances.csv.
+        Entrez un numéro pour choisir une option ou appuyez sur 'q' pour quitter :''')
+        choix = input()
+        if choix == '1':
+            afficher_donnees_csv('pays.csv')
+        elif choix == '2':
+            with open('pays.csv') as csvfile:
+                reader = csv.DictReader(csvfile)
+                donnees = {row['ville']: row for row in reader}
+                sauvegarder_donnees_json(donnees, 'donnees.json')
+        elif choix == '3':
+            donnees = lire_donnees_json('donnees.json')
+            distances = calculer_distances_minimales(donnees)
+            sauvegarder_distances(distances, 'distances.csv')
+        elif choix == 'q':
+            break
+        else:
+         input('Choix invalide, appuyez sur une touche pour continuer...')
 
 
 
